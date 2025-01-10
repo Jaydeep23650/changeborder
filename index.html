@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Border Color</title>
+    <style>
+        body {
+            background-image: url('download1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            border: 15px solid black; /* Default border color */
+            transition: border-color 0.5s ease; /* Smooth color transition */
+        }
+    </style>
+</head>
+<body>
+
+   <h1 style="color: rgb(240, 9, 9);">BMW Car</h1>
+
+    <script>
+        const img = [
+            'download1.jpg',
+            'download2.jpg',
+            'download3.jpg',
+            'download4.jpg',
+            'download5.jpg',
+            'download6.jpg',
+            'download7.jpg',
+            'download8.jpg',
+            'download9.jpg',
+            'download10.jpg',
+            'download11.jpg'
+        ];
+        const car_name=[
+        'Toyota', 'Volkswagen', 'MercedesBenz', 'Ford', 'Tesla', 'Rolls-Royce', 'Bugatti','PaganiZonda','Tesla', 'BMW', 'Audi'
+        ];
+
+        const borderColors = [
+            'red', 'blue', 'green', 'purple', 'orange', 'pink', 'yellow', 'cyan', 'magenta', 'lime'
+        ];
+        
+        let i = 0;
+
+        setInterval(() => {
+            // Update background image by js
+            i = i % img.length;
+            document.body.style.backgroundImage = `url('${img[i]}')`;
+             document.getElementsByTagName('h1')[0].innerText=car_name[i%car_name.length];
+            // Update border color by js
+            const borderColor = borderColors[i % borderColors.length];
+            document.body.style.borderColor = borderColor;
+
+            i++;
+        }, 3000);
+    </script>
+</body>
+</html>
